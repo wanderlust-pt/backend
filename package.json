@@ -5,6 +5,11 @@
   "repository": "https://github.com/wanderlust-pt/backend",
   "author": "Jesse Theisen <theiseja@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "server": "nodemon"
+  },
   "dependencies": {
     "bcrypt": "*",
     "cors": "*",
