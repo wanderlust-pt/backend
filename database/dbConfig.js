@@ -1,5 +1,4 @@
 // database config helper
-
 const knex = require('knex');
 const knexConfig = require('../knexfile');
 
