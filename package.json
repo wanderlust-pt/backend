@@ -1,0 +1,23 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/wanderlust-pt/backend",
+  "author": "Jesse Theisen <theiseja@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "*",
+    "cors": "*",
+    "dotenv": "*",
+    "express": "*",
+    "helmet": "*",
+    "jsonwebtoken": "*",
+    "knex": "*",
+    "morgan": "*",
+    "pg": "*",
+    "sqlite3": "*"
+  },
+  "devDependencies": {
+    "nodemon": "*"
+  }
+}
