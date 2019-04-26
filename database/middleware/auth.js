@@ -1,7 +1,7 @@
 // middleware to check for authentication <-- not setup yet
 const jwt = require('jsonwebtoken');
 
-const jwtKey = process.env.JWT_SECRET || 'This can be anything, will ask team';
+const jwtKey = process.env.JWT_SECRET || 'Keep it secret, keep it safe!'; // can be anything you want
 
 // middleware to check for authorization
 function auth(req, res, next) {
@@ -23,7 +23,19 @@ function auth(req, res, next) {
 
 // middleware to generate a secure token
 
-function genToken(user) {}
+function genToken(user) {
+	const payload = {
+	  username: user.username,
+	  userId: user.id,
+	  roles: ["admin", "user"]
+	};
+	const secret = process.env.JWT_SECRET;
+  
+	const options = {
+	  expiresIn: "45m"
+	};
+	return jwt.sign(payload, secret, options);
+  }
 module.exports = {
 	auth,
 	genToken
