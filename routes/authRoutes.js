@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const database = require('../database/dbConfig');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 // Token generation, cookie
 const { genToken } = require('../database/middleware/auth');
@@ -9,7 +9,7 @@ const { genToken } = require('../database/middleware/auth');
 // debugging as to why no jwt is being generated
 
 // POST register account
-router.post('/register', (req, res) => {
+router.post('/register', genToken, (req, res) => {
     const creds = req.body;
     const hash = bcrypt.hashSync(creds.password, 14);
     creds.password = hash;
