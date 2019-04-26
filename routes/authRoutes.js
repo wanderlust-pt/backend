@@ -6,6 +6,8 @@ const bcrypt = require('bcrypt');
 const { genToken } = require('../database/middleware/auth');
 
 
+// debugging as to why no jwt is being generated
+
 // POST register account
 router.post('/register', (req, res) => {
     const creds = req.body;
