@@ -14,4 +14,12 @@ router.get('/list', async (req, res) => {
     }
 });
 
+router.post('/create', async (req, res) => {
+
+})
+
+router.delete('/delete', async (req, res) => {
+    
+})
+
 module.exports = router;
