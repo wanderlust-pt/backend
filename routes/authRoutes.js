@@ -1,49 +1,48 @@
 const router = require('express').Router();
 const database = require('../database/dbConfig');
-const bcrypt = require('bcrypt');
-
+const bcrypt = require('bcryptjs');
 // Token generation, cookie
 const { genToken } = require('../database/middleware/auth');
 
+// POST register
+router.post('/register', async (req, res) => {
+    const user = req.body;
+    const hash = bcrypt.hashSync(user.password, 10);
+    user.password = hash;
+    try {
+      const token = genToken(user);
+        const [id] = await database('users').insert(user);
+        res.status(201).json({
+            message: "New user created",
+            id
+        })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            error: "Error creating user"
+        })
+    }
+});
 
-// debugging as to why no jwt is being generated
-
-// POST register account
-router.post('/register', genToken, (req, res) => {
-    const creds = req.body;
-    const hash = bcrypt.hashSync(creds.password, 14);
-    creds.password = hash;
-    database("users")
-      .insert(creds)
-      .then(ids => {
-        res.status(201).json(ids);
-      })
-      .catch(() => {
-        res.status(500).json({ error: "Unable to register user" });
-      });
-  });
-
-// POST login with username and password
-router.post('/login', (req, res) => {
-    const creds = req.body;
-    database("users")
-      .where({ username: creds.username })
-      .first()
-      .then(user => {
-        if (user && bcrypt.compareSync(creds.password, user.password)) {
-          //login is successful
-          //create token
-          const token = genToken(user);
-          res
-            .status(200)
-            .json({ message: `${user.username} is logged in`, token });
+// POST login
+router.post('/login', async (req, res) => {
+    let { username, password } = req.body;
+    try {
+        const user = await database('users').where({ username }).first();
+        if (user && bcrypt.compareSync(password, user.password)) {
+            const token = genToken(user);
+            res.status(200).json({
+                message: `Welcome ${user.username}, you are logged in for 1 hour!`,
+                token
+            })
         } else {
-          res.status(401).json({ message: "You shall not pass!" });
+            res.status(401).json({
+                error: 'Invalid credentials'
+            })
         }
-      })
-      .catch(() =>
-        res.status(500).json({ message: "Please try logging in again." })
-      );
-  });
+    } catch (error) {
+        res.status(500).json(error)
+    }
+});
 
 module.exports = router;
