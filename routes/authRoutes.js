@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const database = require('../database/dbConfig');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 
 // Token generation, cookie
 const { genToken } = require('../database/middleware/auth');

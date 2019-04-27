@@ -15,6 +15,7 @@
     "cors": "*",
     "dotenv": "*",
     "express": "*",
+    "faker": "^4.1.0",
     "helmet": "*",
     "jsonwebtoken": "*",
     "knex": "*",
