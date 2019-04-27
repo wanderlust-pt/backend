@@ -1,6 +1,13 @@
 const router = require('express').Router();
 const database = require('../database/dbConfig');
 
+const cool = require('cool-ascii-faces');
+
+router.get('/cool', async (req, res) => {  // Deployment check
+    res.send(cool());
+})
+
+
 // GET all todos
 router.get('/list', async (req, res) => {
     try {
@@ -19,7 +26,7 @@ router.post('/create', async (req, res) => {
 })
 
 router.delete('/delete', async (req, res) => {
-    
+
 })
 
 module.exports = router;
