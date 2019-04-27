@@ -21,7 +21,7 @@ server.use('/todos', auth, logged, todoRoutes);
 
 // just makes sure server is live and running mainly a sanity check
 server.get('/', async (req, res) => {
-    res.send(`Welcome to the WunderList 2.0 API`)
+    res.send(`Welcome to the WunderList 2.0 API!`)
 });
 
 module.exports = server;
