@@ -1,15 +1,12 @@
 const router = require('express').Router();
 const database = require('../database/dbConfig');
 
-const cool = require('cool-ascii-faces');
+router.get('/', async (req, res) => {
 
-router.get('/cool', async (req, res) => {  // Deployment check
-    res.send(cool());
 })
 
-
 // GET all todos
-router.get('/list', async (req, res) => {
+router.get('/get', async (req, res) => {
     try {
         console.log(req.decoded.subject)
         const todo = await database('todos').where('userId', req.decoded.subject);
