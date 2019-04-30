@@ -10,7 +10,6 @@ router.post('/register', async (req, res) => {
     const hash = bcrypt.hashSync(user.password, 10);
     user.password = hash;
     try {
-      const token = genToken(user);
         const [id] = await database('users').insert(user);
         res.status(201).json({
             message: "New user created",
