@@ -37,6 +37,25 @@ router.post('/create', async (req, res) => {
     }
 });
 
+// GET todo by ID
+router.get('/list/:id', async (req, res) => {
+    const id = req.params.id;
+    const userTodos = await database('todos').where('userId', req.decoded.subject);
+    try {
+        if (req.decoded.subject) {
+            const test = await userTodos.where(id);
+            console.log(test)
+            res.status(200).json(test)
+        } else {
+            res.status(404).json({
+                error: "Todo with the specified ID does not exist"
+            })
+        }
+    } catch (e) {
+        res.status(500).json(e)
+    }
+});
+
 
 router.delete('/delete', async (req, res) => {
 
