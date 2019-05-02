@@ -2,7 +2,7 @@
 require('dotenv').config();
 const localPg = {
   host: 'localhost',
-  database: 'wunderlist 2.0',
+  database: 'wunderlist',
   user: process.env.DB_USER,
   password: process.env.DB_PASS
 };
