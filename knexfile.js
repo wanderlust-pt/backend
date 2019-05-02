@@ -1,7 +1,7 @@
 // Update with your config settings.
 require('dotenv').config();
 const localPg = {
-  host: 'https://wunderlist-20.herokuapp.com',
+  host: 'localhost',
   database: 'wunderlist',
   user: process.env.DB_USER,
   password: process.env.DB_PASS
