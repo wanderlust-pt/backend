@@ -7,9 +7,9 @@ router.get('/', async (req, res) => {
 
 // GET all todos
 router.get('/list', async (req, res) => {
+    const todo = await database('todos').where('userId', req.decoded.subject);
     try {
         console.log(req.decoded.subject)
-        const todo = await database('todos').where('userId', req.decoded.subject);
         res.status(200).json(todo)
     } catch (error) {
         res.status(500).json({
@@ -74,8 +74,6 @@ router.put('/edit/:id', async (req, res) => {
         res.status(500).json(e)
     }
 });
-
-
 
 // DELETE a todo
 router.delete('/delete/:id', async (req, res) => {
