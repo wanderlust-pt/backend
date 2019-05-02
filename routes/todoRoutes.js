@@ -56,9 +56,45 @@ router.get('/list/:id', async (req, res) => {
     }
 });
 
+// PUT update todo by ID
+router.put('/edit/:id', async (req, res) => {
+    const id = req.params.id;
+    try {
+        if (id === undefined || req.body.title === undefined) {
+            res.status(400).json({
+                error: "Title is required for the todo"
+            })
+        }
+        const update = await database('todos').where('id', id).update(req.body);
+        res.status(200).json({
+            message: "Todo has been updated",
+            update
+        })
+    } catch (e) {
+        res.status(500).json(e)
+    }
+});
 
-router.delete('/delete', async (req, res) => {
 
-})
+
+// DELETE a todo
+router.delete('/delete/:id', async (req, res) => {
+    const id = req.params.id;
+    const count = await database('todos').where('id', id).del();
+    try {
+        if (count > 0) {
+            res.status(200).json({
+                message: "Todo has been deleted"
+            })
+        } else {
+            res.status(404).json({
+                error: "The todo with the specified ID does not exist"
+            })
+        }
+    } catch (e) {
+        console.log(req.params);
+        res.status(500).json(e)
+    }
+});
 
 module.exports = router;
