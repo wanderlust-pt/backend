@@ -9,7 +9,7 @@ exports.up = function(knex, Promise) {
       tbl.integer('userId')
           .unsigned()
           .references('id')
-          .inTable('users'); // user id that the note belongs
+          .inTable('users'); // user id that the note belongs to
       tbl.boolean('completed'); // completed y/n
       tbl.timestamps(true, true); // timestamps
   })

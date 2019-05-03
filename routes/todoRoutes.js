@@ -1,14 +1,11 @@
 const router = require('express').Router();
 const database = require('../database/dbConfig');
 
-router.get('/', async (req, res) => {
-
-})
 
 // GET all todos
 router.get('/list', async (req, res) => {
-    const todo = await database('todos').where('userId', req.decoded.subject);
     try {
+        const todo = await database('todos').where('userId', req.decoded.subject);
         console.log(req.decoded.subject)
         res.status(200).json(todo)
     } catch (error) {
