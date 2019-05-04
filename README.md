@@ -1,7 +1,6 @@
 # backend
 
-##API Endpoints:
-
+## API Endpoints:
 - POST https://wunderlist-20.herokuapp.com/register = register a new user
 - POST https://wunderlist-20.herokuapp.com/login = login an existing user
 
@@ -11,11 +10,11 @@
 - PUT https://wunderlist-20.herokuapp.com/todos/edit/:id = update a todo
 - DELETE https://wunderlist-20.herokuapp.com/todos/delete/:id = deletes a todo
 
-##Login/Register
+## Login/Register
 - username: (string),
 - password: (string)
 
-##Todo properties
+## Todo properties
 - `id` (number),
 - `title` (string),
 - `task` (string),
