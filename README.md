@@ -1,6 +1,5 @@
 # backend
 
-Jesse-Theisen
 ##API Endpoints:
 
 - POST https://wunderlist-20.herokuapp.com/register = register a new user
