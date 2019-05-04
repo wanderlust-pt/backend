@@ -1,5 +1,18 @@
 # backend
 
+##**API Endpoints:**
+
+POST https://wunderlist-20.herokuapp.com/register = register a new user
+POST https://wunderlist-20.herokuapp.com/login = login an existing user
+
+GET https://wunderlist-20.herokuapp.com/todos/list = receive list of all todo's
+GET https://wunderlist-20.herokuapp.com/todos/list/:id = receive a specific todo
+POST https://wunderlist-20.herokuapp.com/todos/create = add a new todo
+PUT https://wunderlist-20.herokuapp.com/todos/edit/:id = update a todo
+DELETE https://wunderlist-20.herokuapp.com/todos/delete/:id = deletes a todo
+
+
+
 <<<<<<< HEAD
 Back-end Development Role Description
 You have been learning all about NodeJS and Express and SQL in order to craft Web Servers and build API's for consumption by client side applications. You will use these skills to be in charge of building out the back-end API for your project.
