@@ -15,6 +15,17 @@
 - username: (string),
 - password: (string)
 
+##Todo properties
+- `id` (number),
+- `title` (string),
+- `task` (string),
+- `notes` (string),
+- `setDate` (date),
+- `userId` (integer),
+- `completed` (boolean),
+- `created_at` (datetime),
+- `updated_at` (datetime)
+
 
 
 
