@@ -2,18 +2,18 @@
 
 ##API Endpoints:
 
-POST https://wunderlist-20.herokuapp.com/register = register a new user
-POST https://wunderlist-20.herokuapp.com/login = login an existing user
+- POST https://wunderlist-20.herokuapp.com/register = register a new user
+- POST https://wunderlist-20.herokuapp.com/login = login an existing user
 
-GET https://wunderlist-20.herokuapp.com/todos/list = receive list of all todo's
-GET https://wunderlist-20.herokuapp.com/todos/list/:id = receive a specific todo
-POST https://wunderlist-20.herokuapp.com/todos/create = add a new todo
-PUT https://wunderlist-20.herokuapp.com/todos/edit/:id = update a todo
-DELETE https://wunderlist-20.herokuapp.com/todos/delete/:id = deletes a todo
+- GET https://wunderlist-20.herokuapp.com/todos/list = receive list of all todo's
+- GET https://wunderlist-20.herokuapp.com/todos/list/:id = receive a specific todo
+- POST https://wunderlist-20.herokuapp.com/todos/create = add a new todo
+- PUT https://wunderlist-20.herokuapp.com/todos/edit/:id = update a todo
+- DELETE https://wunderlist-20.herokuapp.com/todos/delete/:id = deletes a todo
 
 ##Login/Register
-username: (string),
-password: (string)
+- username: (string),
+- password: (string)
 
 
 
