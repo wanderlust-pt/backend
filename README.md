@@ -12,7 +12,8 @@ PUT https://wunderlist-20.herokuapp.com/todos/edit/:id = update a todo
 DELETE https://wunderlist-20.herokuapp.com/todos/delete/:id = deletes a todo
 
 ##**Login/Register**
-```javascript`username` (string),
+```
+`username` (string),
 `password` (string)```
 
 ##**Back-end Development Role Description**
