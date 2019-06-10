@@ -20,6 +20,7 @@
     "express": "*",
     "faker": "^4.1.0",
     "helmet": "*",
+    "js-yaml": "^3.13.1",
     "jsonwebtoken": "*",
     "knex": "*",
     "morgan": "*",
