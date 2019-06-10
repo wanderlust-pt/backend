@@ -31,4 +31,5 @@ server.get('/cool', (req, res) => {  // Deployment check
     res.send(cool());
 });
 
+
 module.exports = server;
